@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -95,6 +96,8 @@ public class HomeActivity extends AppCompatActivity
             }
         });*/
 
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.LinearLayout,new prueba2Activity()).commit();
     }
 
     @Override
@@ -135,9 +138,11 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        FragmentManager fragmentManager=getSupportFragmentManager();
+
         if (id == R.id.nav_cartelera) {
             // Handle the camera action
-            Toast.makeText(getApplicationContext(),"Cartelera",Toast.LENGTH_SHORT).show();
+            fragmentManager.beginTransaction().replace(R.id.LinearLayout,new prueba2Activity()).commit();
 
         } else if (id == R.id.nav_bistro) {
             Toast.makeText(getApplicationContext(),"Bistro",Toast.LENGTH_SHORT).show();
